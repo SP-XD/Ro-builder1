@@ -26,7 +26,7 @@ make_metalava(){
 
 make_rom(){
 	m styx-ota
-	zip=$(up out/target/product/RMX2020/*zip)
+	zip=$(up out/target/product/X01AD/*zip)
 	echo " "
 	echo "$zip"
 	curl -sL https://git.io/file-transfer | sh
