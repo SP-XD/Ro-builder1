@@ -1,31 +1,7 @@
 #!/bin/bash
 cd /tmp/rom
-rm -rf .repo
-cd external/selinux 
-curl -L http://ix.io/2FhM > sasta.patch 
-git am sasta.patch 
-cd /tmp/rom
-cd frameworks/av 
-wget https://github.com/phhusson/platform_frameworks_av/commit/624cfc90b8bedb024f289772960f3cd7072fa940.patch 
-patch -p1 < *.patch
-cd /tmp/rom
-cd frameworks/opt/net/wifi
-wget https://raw.githubusercontent.com/SamarV-121/android_vendor_extra/lineage-18.1/patches/frameworks/opt/net/wifi/0001-wifi-Add-StaState-API.patch
-patch -p1 < *.patch
-cd /tmp/rom
-cd frameworks/opt/net/ims
-wget https://raw.githubusercontent.com/SamarV-121/android_vendor_extra/lineage-18.1/patches/frameworks/opt/net/ims/0001-Partially-Revert-Remove-references-to-deprecated-dev.patch
-patch -p1 < *.patch
-cd /tmp/rom
-cd frameworks/base 
-wget https://raw.githubusercontent.com/SamarV-121/android_vendor_extra/lineage-18.1/patches/frameworks/base/0008-WifiManager-Add-StaState-API.patch
-patch -p1 < *.patch
-cd /tmp/rom
-rm -rf vendor/mediatek/ims/packages/EngineerMode
-rm -rf vendor/mediatek/ims/packages/ImsService
-cd /tmp/rom
 source build/envsetup.sh
-lunch styx_RMX2020-userdebug
+lunch styx_X01AD-user
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 cd /tmp/rom
@@ -54,7 +30,7 @@ make_rom(){
 	echo " "
 	echo "$zip"
 	curl -sL https://git.io/file-transfer | sh
-	./transfer wet out/target/product/RMX2020/*zip
+	./transfer wet out/target/product/X01AD/*zip
 }
 
 make_metalava
